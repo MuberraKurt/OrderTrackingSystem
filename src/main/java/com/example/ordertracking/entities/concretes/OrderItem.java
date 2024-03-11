@@ -15,15 +15,25 @@ import java.util.Date;
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="o_id")
-    private Integer id;
+    @Column(name = "o_id")
+    private int id;
 
-    @Column(name="order_status")
+    @ManyToOne
+    @JoinColumn(name = "p_id")
+    private Product product;
+
+    @Column(name = "quantity")
+    private int quantity;
+
+    @Column(name = "payment_status")
+    private String paymentStatus;
+
+    @Column(name = "order_status")
     private String orderStatus;
 
-    @Column(name="order_date")
+    @Column(name = "order_date")
     private Date orderDate;
 
-    @Column(name="customer_name")
+    @Column(name = "customer_name")
     private String customerName;
 }
